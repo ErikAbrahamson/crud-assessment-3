@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html ng-app="crudApp">
+<head>
+  <title>CRUD Assessment 3</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+</head>
+
+<body ng-controller="mainController">
+
+  <div class="container">
+    <h1>CRUD 3 :: Portfolio</h1>
+    <div id="project-form" class="row">
+
+      <form name="projectForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input ng-model="formData.name" name="name" id="name" type="text" class="form-control" placeholder="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input ng-model="formData.description" name="description" id="description" type="text" class="form-control" placeholder="description" required>
+        </div>
+
+        <div class="form-group">
+          <label for="tags">Tags</label>
+          <input ng-model="formData.tags" name="tags" id="tags" type="text" class="form-control" placeholder="tags" required>
+        </div>
+
+        <div class="form-group">
+          <label for="group">Group</label>
+          <input ng-model="formData.group" name="group" id="group" type="text" class="form-control" placeholder="group" required>
+        </div>
+
+        <div class="form-group">
+          <label for="group_members">Group Members</label>
+          <input ng-model="formData.group_members" name="group-members" id="group-members" type="text" class="form-control" placeholder="group-members" required>
+        </div>
+
+        <button ng-click="createProject()" class="btn btn-primary">Submit</button>
+      </form>
+
+    </div>
+    <hr><br>
+
+    <div class="row" id="project-list">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Tags</th>
+            <th>Group</th>
+            <th>Group Members</th>
+            <th>Modify</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="projectPost" ng-repeat="project in projects">
+            <td>{{ project.name }}</td>
+            <td>{{ project.description }}</td>
+            <td>{{ project.tags }}</td>
+            <td>{{ project.group }}</td>
+            <td>{{ project.group_members }}</td>
+            <td>
+              <!-- <button ng-click="open()" class="btn-xs btn-info">Edit</button> -->
+              &nbsp;
+              <button ng-click="deleteProject(project._id)" class="btn-xs btn-danger">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- modal partial -->
+      <ng-include src="'partials/modal.html'"></ng-include>
+
+    </div>
+
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script type="text/javascript" src="js/lib/ui.bootstrap.modal.js"></script>
+
+  </script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/modal.js"></script>
+</body>
+</html>
