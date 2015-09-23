@@ -1,54 +1,16 @@
-# Full Stack CRUD Assessment - todo
+# Full Stack CRUD Assessment 3
 
-Week of 09/14.
+### Components:
+1. MongoDB && Mongoose
+1. Express
+1. AngularJS
+1. Node.js
 
-## Server-Side
-
-1. Create the project structure
-
-1. Write mocha and chai tests - [example](http://mherman.org/blog/2015/09/10/testing-node-js-with-mocha-and-chai/#.VfXQblNViko)
-
-1. Utilize the following resource - `exercises` (yes, this is for class exercises)
-
-1. Create the RESTful route structure:
-  - GET (ALL exercises) - `/api/v1/exercises`
-  - GET (a single exercise) - `/api/v1/exercise/:id`
-  - POST - `/api/v1/exercises`
-  - PUT - `/api/v1/exercise/:id`
-  - DELETE - `/api/v1/exercise/:id`
-1. Setup MongoDB, Mongoose, and define your schema:
-
-  ```javascript
-  var Exercise = new Schema({
-    name: String,
-    description: String,
-    tags: [String]
-  });
-  ```
-
-  > Example tags - "javascript", "jquery", "mongo", "node"
-
-1. Update each route to connect to the database and return JSON. *Make sure to test along the way.*
-1. Add `MONGO_URI` as an environment variable so that you are using a *different* database for testing vs. development. You can use either:
-
-  - [dotenv](https://www.npmjs.com/package/dotenv) - [example](https://github.com/gSchool/g11-course-curriculum/blob/master/week10/10_exercises/_solutions/crud-assessment/server/models/beer.js#L12), or
-  - [example](http://mherman.org/blog/2015/09/10/testing-node-js-with-mocha-and-chai/#hooks) from the blog post
-
-## Client-Side
-
-1. Render a single *index.html* file, which includes-
-  - a form for adding (POST) a new exercise to the collection
-  - all exercises below the form
-  - a delete button next to each exercise to, well, delete it
-  - an edit button to update each exercise (this could display a form in the HTML document or, even better, a modal)
-1. Handle client-side form validation with HTML5 attributes.
-1. Handle the form submission with jQuery. This *must* be a SPA (single page application)
-
-## Deployment
-
-1. Deploy to Heroku
-
-## Bonus
-
-1. Add in all of the [exercises](https://students.galvanize.com/instructor/cohorts/15/cohort_exercises) up to this point to create an exercise API!
-1. Add Angular
+### To-Do:
+~~1. Set up Node.js app & middleware. Install dependencies~~
+~~1. Build schema, connect to database through Mongoose~~
+~~1. Build RESTful API route structure with Q lib promises~~
+~~1. Remove server-side temlpating & serve up Angular front-end html~~
+~~1. Build Mocha/Chai tests with Express; set up mock DB and hooks~~
+~~1. Pass all RESTful tests~~
+1. Implement modal for edit button
