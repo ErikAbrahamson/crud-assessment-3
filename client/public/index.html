@@ -62,9 +62,17 @@
           <tr id="projectPost" ng-repeat="project in projects">
             <td>{{ project.name }}</td>
             <td>{{ project.description }}</td>
-            <td>{{ project.tags }}</td>
+            <td>
+              <span ng-repeat="tags in project.tags | splitter">
+                {{ tags }}
+              </span>
+            </td>
             <td>{{ project.group }}</td>
-            <td>{{ project.group_members }}</td>
+            <td>
+              <span ng-repeat="members in project.group_members | splitter">
+                {{ members }}
+              </span>
+            </td>
             <td>
               <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">Edit</button>
               <ng-include src="'partials/modal.html'"></ng-include>
@@ -85,7 +93,8 @@
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/app.js"></script>
-  <script type="text/javascript" src="js/modal.js"></script>
+  <script type="text/javascript" src="js/controller.js"></script>
+  <script type="text/javascript" src="js/filters.js"></script>
   <script type="text/javascript" src="js/directives.js"></script>
 </body>
 </html>
