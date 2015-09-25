@@ -11,7 +11,7 @@
 <body ng-controller="mainController">
 
   <div class="container">
-    <h1>CRUD 3 :: Portfolio</h1>
+    <my-title></my-title>
     <div id="project-form" class="row">
 
       <form name="projectForm">
@@ -62,13 +62,22 @@
           <tr id="projectPost" ng-repeat="project in projects">
             <td>{{ project.name }}</td>
             <td>{{ project.description }}</td>
-            <td>{{ project.tags }}</td>
-            <td>{{ project.group }}</td>
-            <td>{{ project.group_members }}</td>
             <td>
-              <!-- <button ng-click="open()" class="btn-xs btn-info">Edit</button> -->
+              <span ng-repeat="tags in project.tags">
+                {{ tags }}
+              </span>
+            </td>
+            <td>{{ project.group }}</td>
+            <td>
+              <span ng-repeat="members in project.group_members">
+                {{ members }}
+              </span>
+            </td>
+            <td>
+              <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">Edit</button>
+              <ng-include src="'partials/modal.html'"></ng-include>
               &nbsp;
-              <button ng-click="deleteProject(project._id)" class="btn-xs btn-danger">Delete</button>
+              <button ng-click="deleteProject(project._id)" class="btn btn-xs btn-danger">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -76,9 +85,6 @@
       <a href="/api/v1/projects">
         <button class="btn btn-xs btn-info">View API</button>
       </a>
-
-      <!-- modal partial -->
-      <ng-include src="'partials/modal.html'"></ng-include>
 
     </div>
 
@@ -88,8 +94,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <script type="text/javascript" src="js/lib/ui.bootstrap.modal.js"></script>
 
-  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/app.js"></script>
-  <script type="text/javascript" src="js/modal.js"></script>
+  <script type="text/javascript" src="js/controller.js"></script>
+  <script type="text/javascript" src="js/filters.js"></script>
+  <script type="text/javascript" src="js/directives.js"></script>
 </body>
 </html>
