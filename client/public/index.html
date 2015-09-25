@@ -63,13 +63,13 @@
             <td>{{ project.name }}</td>
             <td>{{ project.description }}</td>
             <td>
-              <span ng-repeat="tags in project.tags | splitter">
+              <span ng-repeat="tags in project.tags">
                 {{ tags }}
               </span>
             </td>
             <td>{{ project.group }}</td>
             <td>
-              <span ng-repeat="members in project.group_members | splitter">
+              <span ng-repeat="members in project.group_members">
                 {{ members }}
               </span>
             </td>
@@ -77,7 +77,7 @@
               <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">Edit</button>
               <ng-include src="'partials/modal.html'"></ng-include>
               &nbsp;
-              <button ng-click="deleteProject(project._id)" class="btn-xs btn-danger">Delete</button>
+              <button ng-click="deleteProject(project._id)" class="btn btn-xs btn-danger">Delete</button>
             </td>
           </tr>
         </tbody>

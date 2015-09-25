@@ -3,6 +3,11 @@ crudApp.controller('mainController', function($scope, $http) {
   $scope.formData = {};
   $scope.modalData = {};
 
+  $scope.parseArray = function(key) {
+    $scope.formData.key = $scope.formData.key.split(', ');
+    return $scope.formData.key;
+  };
+
   $http.get('/api/v1/projects')
     .success(function(data) {
       $scope.projects = data;
@@ -13,6 +18,8 @@ crudApp.controller('mainController', function($scope, $http) {
     });
 
   $scope.createProject = function() {
+    $scope.parseArray(group_members);
+    $scope.parseArray(tags);
     $http.post('/api/v1/projects/', $scope.formData)
       .success(function(data) {
         $scope.formData = {}; // clears the form every entry
