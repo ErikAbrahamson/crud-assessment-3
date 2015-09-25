@@ -1,23 +1,49 @@
-<div ng-controller="projectEdit">
-  <div class="modal-header">
-      <h3 class="modal-title">I'm a modal!</h3>
-  </div>
-  <div class="modal-body">
-    <ul>
-      <li ng-repeat="item in items">
-        <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
-      </li>
-    </ul>
-      Selected: <b>{{ selected.item }}</b>
-  </div>
-  <div class="modal-footer">
-      <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-      <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-  </div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
 
-  <button type="button" class="btn btn-default" ng-click="open()">Open me!</button>
-  <button type="button" class="btn btn-default" ng-click="open('lg')">Large modal</button>
-  <button type="button" class="btn btn-default" ng-click="open('sm')">Small modal</button>
-  <button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{ animationsEnabled }})</button>
-  <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modify Project</h4>
+      </div>
+
+      <div class="modal-body">
+
+        <form name="projectForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input ng-model="modalData.name" name="name" id="name" type="text" class="form-control" placeholder="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input ng-model="modalData.description" name="description" id="description" type="text" class="form-control" placeholder="description" required>
+          </div>
+
+          <div class="form-group">
+            <label for="tags">Tags</label>
+            <input ng-model="modalData.tags" name="tags" id="tags" type="text" class="form-control" placeholder="tags" required>
+          </div>
+
+          <div class="form-group">
+            <label for="group">Group</label>
+            <input ng-model="modalData.group" name="group" id="group" type="text" class="form-control" placeholder="group" required>
+          </div>
+
+          <div class="form-group">
+            <label for="group_members">Group Members</label>
+            <input ng-model="modalData.group_members" name="group-members" id="group-members" type="text" class="form-control" placeholder="group-members" required>
+          </div>
+        </form>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button ng-click="editProject(project._id)" type="button" class="btn btn-primary">Save changes</button>
+      </div>
+
+    </div>
+  </div>
 </div>

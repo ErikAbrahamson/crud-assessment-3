@@ -3,6 +3,7 @@ var crudApp = angular.module('crudApp', ['ui.bootstrap.modal']);
 crudApp.controller('mainController', function($scope, $http) {
 
   $scope.formData = {};
+  $scope.modalData = {};
 
   $http.get('/api/v1/projects')
     .success(function(data) {
@@ -37,10 +38,16 @@ crudApp.controller('mainController', function($scope, $http) {
   };
 
     $scope.editProject = function(id) {
-    $http.put('/api/v1/projects/' + id)
+      var update = {
+        name: $scope.modalData.name,
+        description: $scope.modalData.description,
+        tags: $scope.modalData.tags,
+        group: $scope.modalData.group,
+        group_members: $scope.modalData.group_members
+      };
+    $http.put('/api/v1/projects/' + id, update)
       .success(function(data) {
-        $scope.projects = data;
-        console.log(data);
+        data = update;
       })
       .error(function(error) {
         console.log('Error: ' + error);
