@@ -38,16 +38,10 @@ crudApp.controller('mainController', function($scope, $http) {
   };
 
     $scope.editProject = function(id) {
-      var update = {
-        name: $scope.modalData.name,
-        description: $scope.modalData.description,
-        tags: $scope.modalData.tags,
-        group: $scope.modalData.group,
-        group_members: $scope.modalData.group_members
-      };
-    $http.put('/api/v1/projects/' + id, update)
+    $http.put('/api/v1/projects/' + id, $scope.modalData)
       .success(function(data) {
-        data = update;
+        data = $scope.modalData;
+        $scope.$apply();
       })
       .error(function(error) {
         console.log('Error: ' + error);

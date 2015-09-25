@@ -63,7 +63,7 @@ router.delete('/projects/:id', function(req, res, next) {
 
 // Angular Application loading single view file
 router.get('*', function(req, res) {
-  res.sendfile('../client/public/index.html');
+  res.sendFile('../client/public/index.html');
 });
 
 module.exports = router;
