@@ -13,4 +13,4 @@
 ~~1. Remove server-side temlpating & serve up Angular front-end html~~  
 ~~1. Build Mocha/Chai tests with Express; set up mock DB and hooks~~  
 ~~1. Pass all RESTful tests~~  
-1. Implement modal for edit button  
+~~1. Implement modal for edit button~~
