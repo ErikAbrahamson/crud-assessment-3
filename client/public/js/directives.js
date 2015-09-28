@@ -10,7 +10,7 @@ crudApp.directive('myTitle', function() {
 crudApp.directive('editModal', function() {
   return {
     restrict: 'AEC',
-    replace: 'true',
+    replace: 'false',
     templateUrl: './partials/modal.html'
   };
 });

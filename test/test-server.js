@@ -64,6 +64,7 @@ describe('Projects', function() {
           res.body.should.have.property('_id');
           res.body.should.have.property('name');
           res.body.should.have.property('description');
+          res.body.should.have.property('group');
           res.body.should.have.property('tags');
           res.body._id.should.equal(data.id);
           done();
