@@ -1,5 +1,5 @@
 {
-  "name": "CRUD Assessment 3",
+  "name": "_",
   "version": "0.1.9",
   "private": true,
   "scripts": {
@@ -20,7 +20,11 @@
     "swig": "^1.4.2"
   },
   "devDependencies": {
+    "browser-sync": "^2.9.11",
+    "gulp": "^3.9.0",
     "gulp-changed": "^1.3.0",
-    "gulp-imagemin": "^2.3.0"
+    "gulp-imagemin": "^2.3.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-nodemon": "^2.0.4"
   }
 }
