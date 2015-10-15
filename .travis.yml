@@ -7,7 +7,12 @@ node_js:
   - "0.11"
 
 services:
-  - "mongodb"
+  - mongodb
 
-before_script:
-  - "run /test/test-server.js"
+# before_script:
+#   - npm install
+#   - npm install -g gulp
+
+script:
+  - mocha
+  - chai
